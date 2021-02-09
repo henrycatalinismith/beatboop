@@ -2,7 +2,6 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { search, selectSearchQuery, selectSearchResults } from "./searchSlice";
 import { playTrack } from "../player/playerSlice";
-import { SoundcloudTrack } from "../soundcloud/soundcloudSlice";
 import styles from "./Search.module.scss";
 
 export function Search() {

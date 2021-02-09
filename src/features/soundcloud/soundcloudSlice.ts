@@ -1,5 +1,5 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { AppThunk, RootState } from "../../app/store";
+import { createSlice } from "@reduxjs/toolkit";
+import { AppThunk } from "../../app/store";
 
 export interface SoundcloudTrack {
   id: number;
@@ -15,10 +15,6 @@ export interface SoundcloudTrack {
 
 interface InitializeOptions {
   client_id: string;
-}
-
-interface StringMap {
-  [x: string]: any;
 }
 
 interface TrackSearchOptions {

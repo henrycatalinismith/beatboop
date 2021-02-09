@@ -28,4 +28,3 @@ export const search = (q: string): AppThunk => (dispatch) => {
 export const selectSearchQuery = (state: RootState) => state.search.query;
 
 export default searchSlice.reducer;
-

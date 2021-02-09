@@ -1,6 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-//import { AppThunk, RootState } from "../../app/store";
-import { RootState } from "../../app/store";
+import { AppThunk, RootState } from "../../app/store";
 
 interface SearchState {
   query: string;
@@ -21,6 +20,10 @@ export const searchSlice = createSlice({
 });
 
 export const { query } = searchSlice.actions;
+
+export const search = (q: string): AppThunk => (dispatch) => {
+  dispatch(query(q));
+};
 
 export const selectSearchQuery = (state: RootState) => state.search.query;
 

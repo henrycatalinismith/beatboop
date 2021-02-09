@@ -1,9 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { AppThunk, RootState } from "../../app/store";
-import {
-  SoundcloudTrack,
-  streamSoundcloud,
-} from "../../features/soundcloud/soundcloudSlice";
+import SC, { SoundcloudTrack } from "../../soundcloud"
 
 interface PlayerState {
   track: SoundcloudTrack;
@@ -39,7 +36,8 @@ export const playTrack = (track: SoundcloudTrack): AppThunk => async (
   dispatch
 ) => {
   dispatch(play(track));
-  dispatch(streamSoundcloud(track));
+  const player = await SC.stream(`/tracks/${track.id}`);
+  await player.play();
 };
 
 export const selectPlayerTrack = (state: RootState) => state.player.track;

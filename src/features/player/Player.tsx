@@ -9,13 +9,14 @@ export function Player() {
 
   return (
     <div className={styles.player}>
-      <div className={styles.title}>{track.title}</div>
       <img
         className={styles.artwork}
         aria-hidden
         alt=""
         src={track.artwork_url}
       />
+      <div className={styles.title}>{track.title}</div>
+      <div className={styles.username}>{track.user.username}</div>
     </div>
   );
 }

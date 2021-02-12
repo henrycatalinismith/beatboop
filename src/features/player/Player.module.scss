@@ -1,23 +1,4 @@
 .player {
-  display: grid;
-  grid-template-areas:
-    "artwork title"
-    "artwork username";
-  grid-template-columns: 100px auto;
-}
-
-.artwork {
-  grid-area: artwork;
+  display: flex;
   height: 100px;
-  width: 100px;
-}
-
-.title {
-  grid-area: title;
-  text-align: left;
-}
-
-.username {
-  grid-area: username;
-  text-align: left;
 }

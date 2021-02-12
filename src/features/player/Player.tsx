@@ -1,6 +1,8 @@
 import React from "react";
 import { useSelector /*, useDispatch */ } from "react-redux";
 import { selectPlayerTrack } from "./playerSlice";
+import { Artwork } from "../../components/Artwork";
+import { Metadata } from "../../components/Metadata";
 import styles from "./Player.module.scss";
 
 export function Player() {
@@ -9,14 +11,8 @@ export function Player() {
 
   return (
     <div className={styles.player}>
-      <img
-        className={styles.artwork}
-        aria-hidden
-        alt=""
-        src={track.artwork_url}
-      />
-      <div className={styles.title}>{track.title}</div>
-      <div className={styles.username}>{track.user.username}</div>
+      <Artwork track={track} />
+      <Metadata track={track} />
     </div>
   );
 }

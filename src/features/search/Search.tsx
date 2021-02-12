@@ -2,6 +2,8 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { search, selectSearchQuery, selectSearchResults } from "./searchSlice";
 import { playTrack } from "../player/playerSlice";
+import { Artwork } from "../../components/Artwork";
+import { Metadata } from "../../components/Metadata";
 import styles from "./Search.module.scss";
 
 export function Search() {
@@ -34,14 +36,8 @@ export function Search() {
           return (
             <li className={styles.result} key={result.id}>
               <button className={styles.button} onClick={onClick}>
-                <img
-                  className={styles.artwork}
-                  aria-hidden
-                  alt=""
-                  src={result.artwork_url}
-                />
-                <span className={styles.title}>{result.title}</span>
-                <span className={styles.username}>{result.user.username}</span>
+                <Artwork track={result} />
+                <Metadata track={result} />
               </button>
             </li>
           );

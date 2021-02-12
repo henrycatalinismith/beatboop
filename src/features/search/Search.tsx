@@ -27,14 +27,22 @@ export function Search() {
       />
 
       <ol className={styles.results}>
-        {results.map((result) => {
+        {results.slice(0, 4).map((result) => {
           const onClick = () => {
             dispatch(playTrack(result));
           };
           return (
             <li className={styles.result} key={result.id}>
-              <span className={styles.title}>{result.title}</span>
-              <button onClick={onClick}>play</button>
+              <button className={styles.button} onClick={onClick}>
+                <img
+                  className={styles.artwork}
+                  aria-hidden
+                  alt=""
+                  src={result.artwork_url}
+                />
+                <span className={styles.title}>{result.title}</span>
+                <span className={styles.username}>{result.user.username}</span>
+              </button>
             </li>
           );
         })}

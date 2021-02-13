@@ -11,8 +11,8 @@ export function Player() {
 
   return (
     <div className={styles.player}>
-      <Artwork track={track} />
-      <Metadata track={track} />
+      <Artwork track={track} feature="Player" />
+      <Metadata track={track} feature="Player" />
     </div>
   );
 }

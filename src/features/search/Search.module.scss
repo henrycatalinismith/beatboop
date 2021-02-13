@@ -1,28 +1,37 @@
 .search {
+  background-color: hotpink;
   display: flex;
   flex-direction: column;
+  padding: 1rem;
+  flex: 1;
 }
 
 .query {
   height: var(--queryHeight);
   width: 100%;
 
+  border: 2px solid pink;
+  border-radius: 2px;
   font-family: "Monaco", "Menlo", monospace;
   font-size: 1rem;
+  margin: 0 0 1rem 0;
   padding: 0.4rem;
+  -webkit-appearance: none;
 }
 
 .results {
+  background-color: lightpink;
   display: flex;
   flex-direction: column;
   list-style-type: none;
   margin: 0;
-  padding: 0;
+  padding: 0 0 0 1rem;
 }
 
 .result {
   display: flex;
   flex: 1;
+  margin-bottom: 1rem;
 }
 
 .button {
@@ -31,7 +40,7 @@
   border: 0;
   flex: 1;
   padding: 0;
-  height: 100px;
+  height: 84px;
   overflow: hidden;
   font-size: 1rem;
 }

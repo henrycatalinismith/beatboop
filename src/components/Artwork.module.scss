@@ -1,4 +1,28 @@
 .artwork {
+  position: relative;
+  overflow: hidden;
+}
+
+.player {
   height: 100px;
   width: 100px;
+}
+
+.search {
+  height: 84px;
+  width: 84px;
+}
+
+.image {
+  opacity: 0.01;
+  transition: opacity 128ms;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.loaded {
+  opacity: 1;
 }

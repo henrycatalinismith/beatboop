@@ -36,8 +36,8 @@ export function Search() {
           return (
             <li className={styles.result} key={result.id}>
               <button className={styles.button} onClick={onClick}>
-                <Artwork track={result} />
-                <Metadata track={result} />
+                <Artwork track={result} feature="Search" />
+                <Metadata track={result} feature="Search" />
               </button>
             </li>
           );

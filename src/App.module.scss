@@ -1,5 +1,6 @@
 .App {
   text-align: center;
-  width: min(100vw, 32rem);
+  //padding: 1rem 0;
+  width: min(calc(100vw - 2rem), 32rem);
 }
 

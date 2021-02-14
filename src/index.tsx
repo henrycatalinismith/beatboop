@@ -22,5 +22,5 @@ ReactDOM.render(
 serviceWorker.unregister();
 
 SC.initialize({
-  client_id: process.env.REACT_APP_SOUNDCLOUD_API_KEY!
+  client_id: process.env.REACT_APP_SOUNDCLOUD_API_KEY!,
 });

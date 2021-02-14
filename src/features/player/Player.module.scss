@@ -5,3 +5,26 @@
   padding: 1rem;
   overflow: hidden;
 }
+
+.button {
+  background: none;
+  border: 0;
+  cursor: pointer;
+  font-size: 64px;
+  line-height: 1rem;
+  padding: 0;
+  -webkit-appearance: none;
+  transform: scale(1);
+  transition: transform 128ms;
+  height: 64px;
+  align-self: center;
+}
+
+.button:focus {
+  outline: none;
+  text-shadow: 0 0 0.4rem cyan;
+}
+
+.button:hover {
+  transform: scale(1.04);
+}

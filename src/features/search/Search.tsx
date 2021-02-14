@@ -30,12 +30,10 @@ export function Search() {
 
       <ol className={styles.results}>
         {results.map((result) => {
-          const onClick = () => {
-            dispatch(playTrack(result));
-          };
+          const onClick = () => dispatch(playTrack(result));
           return (
             <li className={styles.result} key={result.id}>
-              <button className={styles.button} onClick={onClick}>
+              <button className={styles.button} onClick={onClick} aria-label={`Play "${result.title}" by "${result.user.username}"`}>
                 <Artwork track={result} feature="Search" />
                 <Metadata track={result} feature="Search" />
               </button>

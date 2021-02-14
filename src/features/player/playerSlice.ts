@@ -12,14 +12,14 @@ interface PlayerState {
 const initialState: PlayerState = {
   mode: "idle",
   track: {
-    id: 140137930,
-    title: "「Exclusive Coupé」",
-    duration: 234940,
-    artwork_url: "https://i1.sndcdn.com/artworks-000190668115-hzjyco-large.jpg",
-    permalink_url: "https://soundcloud.com/myroneofficial/exclusive-coup",
+    id: 297020509,
+    title: "Easy Street",
+    duration: 212499,
+    artwork_url: "https://i1.sndcdn.com/artworks-gCc9B23MbK4a-0-large.jpg",
+    permalink_url: "https://soundcloud.com/amanazofficial/easy-street",
     user: {
-      username: "MYRONE",
-      permalink_url: "https://soundcloud.com/myroneofficial",
+      username: "Amanaz",
+      permalink_url: "https://soundcloud.com/amanazofficial",
     },
   },
 };

@@ -1,44 +1,38 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
+# beatboop
 
-## Available Scripts
+Cloud player take-home assignment for [redacted].
 
-In the project directory, you can run:
+## Requirements
 
-### `yarn start`
+* Result list with title, artist, duration and a play button.
+* You can play back the music using the soundcloud widget player. (Bonus: Play back the track using web audio)
+* Use AngularJS, React or other Javascript framework of your choice. No server-side code.
+* If you want to: make it with a twist if you like – fancy graphics, odd javascript library, animations, audio effects.
+* It should have at least one test.
+* It should have a readme file.
+* Upload the assignment and a readme file to Google Drive as a zip file and share it.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Setup
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+In the root of the project, create a file called `.env.local` and add your Soundcloud API key like this:
 
-### `yarn test`
+```
+REACT_APP_SOUNDCLOUD_API_KEY=replacethistextwithyourkey
+```
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Run `yarn` and then `yarn start` and the app will fire up on http://localhost:3000/. If you have any trouble with it, the app's already online at https://hen.cat/beatboop as well. But these dependencies are fairly standard create-react-app stuff so I'd be surprised if there was any tricky `yarn` errors to deal with unless you're running one of those shiny new M1 Macbooks or something.
 
-### `yarn build`
+The API key you included with the assignment sometimes gets rate limited (429 Too Many Requests), so so keep an eye out for that because there's been a few times when I thought I had a bug in my code which turned out to be the rate limit. I tried to create a new key but it looks like Soundcloud have closed down their developer program for now.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Notes
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+I've hit all the requirements, and tried to build something that's reasonably robust on mobile devices and accessible to screen reader users as well as keyboard-only users.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Instead of having a play button per search result, I made each search result into one big button each. This makes for quite a nice screen reader UX where the narrator announces each item in the result list as "Button, play ${track name} by ${artist}", allowing the user to hit play immediately instead of poking around in a soup of elements to find the play button.
 
-### `yarn eject`
+Some of the styling might be a little surprising at first glance, especially the absolute positioning of the #root element. Mobile Safari is the main browser our visitors use at my current job so I have a lot of habits around optimizing for that browser. If you open this app in mobile Safari you'll notice that there's no annoying whole-page scroll bounce effect because the UI
+fits exactly in the viewport. The mobile Safari bottom bar is also visible on page load, which means the user can tap the search results even at the very bottom of the element without having their first tap ignored by Safari to instead summon the bottom bar (very annoying browser behaviour!).
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+I didn't have time to do lots of stuff I'd have liked to do. One thing I had to leave out was handling landscape orientation nicely on phones. It's still perfectly functional in landscape but I'd like to have gotten it a bit more pixel-perfect. I also deliberately didn't do any desktop-specific layout work which was partially to save time for the exercise, and partially because I think mobile-first MVP implementations are often good enough for production use anyway and if people AB tested the introduction of their desktop-specific layouts they'd often find they don't have much impact on key metrics. The hardest thing to leave out was that I'd have loved to spend a while making it beautiful. At least it's a very robust foundation to add that kind of polish to.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+I might have extracted a few more components from `<Player />` and `<Search />` with a little more time. But I do really like the balance the code strikes right now because the only components extracted into `src/app/components` are ones that are actually used in more than one place. I think that's often a good heuristic for whether a component should be extracted or not, but I'm generally pretty flexible these days about those kinds of refactoring decisions as they tend to vary a lot between teams.

@@ -8,11 +8,21 @@ html {
 }
 
 body {
-  display: flex;
-  justify-content: center;
   margin: 0;
   overflow: hidden;
   font-family: Helvetica, sans-serif;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
 }
 
 

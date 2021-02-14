@@ -11,7 +11,10 @@ export interface MetadataProps {
 
 export function Metadata({ feature, track }: MetadataProps) {
   return (
-    <span className={styles.metadata}>
+    <span className={cx(styles.metadata, {
+      [styles.player]: feature === "Player",
+      [styles.search]: feature === "Search",
+    })}>
       <span className={styles.title}>{track.title.trim()}</span>
       <span className={styles.username}>{track.user.username}</span>
       <span className={styles.duration}>

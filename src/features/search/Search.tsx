@@ -29,7 +29,7 @@ export function Search() {
       />
 
       <ol className={styles.results}>
-        {results.slice(0, 4).map((result) => {
+        {results.map((result) => {
           const onClick = () => {
             dispatch(playTrack(result));
           };

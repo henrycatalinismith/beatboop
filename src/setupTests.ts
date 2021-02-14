@@ -4,6 +4,4 @@
 // learn more: https://github.com/testing-library/jest-dom
 import "@testing-library/jest-dom/extend-expect";
 
-(global as any).SC = {
-
-};
+(global as any).SC = {};

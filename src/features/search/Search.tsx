@@ -33,7 +33,11 @@ export function Search() {
           const onClick = () => dispatch(playTrack(result));
           return (
             <li className={styles.result} key={result.id}>
-              <button className={styles.button} onClick={onClick} aria-label={`Play "${result.title}" by "${result.user.username}"`}>
+              <button
+                className={styles.button}
+                onClick={onClick}
+                aria-label={`Play "${result.title}" by "${result.user.username}"`}
+              >
                 <Artwork track={result} feature="Search" />
                 <Metadata track={result} feature="Search" />
               </button>

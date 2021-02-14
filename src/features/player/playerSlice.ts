@@ -1,11 +1,11 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { AppThunk, RootState } from "../../app/store";
-import SC, { SoundcloudPlayer, SoundcloudTrack } from "../../soundcloud"
+import SC, { SoundcloudPlayer, SoundcloudTrack } from "../../soundcloud";
 
-export type PlayerModes = "idle" | "play" | "pause"
+export type PlayerModes = "idle" | "play" | "pause";
 
 interface PlayerState {
-  mode: PlayerModes
+  mode: PlayerModes;
   track: SoundcloudTrack;
 }
 
@@ -29,19 +29,19 @@ export const playerSlice = createSlice({
   initialState,
   reducers: {
     play: (state, action: PayloadAction<SoundcloudTrack>) => {
-      state.mode = "play"
+      state.mode = "play";
       state.track = action.payload;
     },
 
     pause: (state) => {
-      state.mode = "pause"
-    }
+      state.mode = "pause";
+    },
   },
 });
 
 export const { pause, play } = playerSlice.actions;
 
-let player: SoundcloudPlayer
+let player: SoundcloudPlayer;
 
 export const playTrack = (track: SoundcloudTrack): AppThunk => async (
   dispatch
@@ -52,17 +52,17 @@ export const playTrack = (track: SoundcloudTrack): AppThunk => async (
 };
 
 export const togglePlayback = (): AppThunk => async (dispatch, getState) => {
-  const { mode, track } = getState().player
+  const { mode, track } = getState().player;
   if (mode === "idle") {
-    await dispatch(playTrack(track))
+    await dispatch(playTrack(track));
   } else if (mode === "play") {
-    await dispatch(pause())
-    await player.pause()
+    await dispatch(pause());
+    await player.pause();
   } else if (mode === "pause") {
-    await dispatch(play(track))
-    await player.play()
+    await dispatch(play(track));
+    await player.play();
   }
-}
+};
 
 export const selectPlayerMode = (state: RootState) => state.player.mode;
 export const selectPlayerTrack = (state: RootState) => state.player.track;

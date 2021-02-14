@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { AppThunk, RootState } from "../../app/store";
-import SC, { SoundcloudTrack } from "../../soundcloud"
+import SC, { SoundcloudTrack } from "../../soundcloud";
 
 export interface SearchState {
   query: string;
@@ -20,7 +20,10 @@ export const searchSlice = createSlice({
       state.query = action.payload;
     },
 
-    results: (state, action: PayloadAction<{ query: string, tracks: SoundcloudTrack[] }>) => {
+    results: (
+      state,
+      action: PayloadAction<{ query: string; tracks: SoundcloudTrack[] }>
+    ) => {
       // Search results are subject to a tricky race condition when they're being fetched
       // live as the user types. If a search request dispatched by an earlier keystroke is
       // processed slower than a subsequent request, the user ends up seeing the results

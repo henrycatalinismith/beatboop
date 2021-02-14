@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { AppThunk, RootState } from "../../app/store";
 import SC, { SoundcloudTrack } from "../../soundcloud"
 
-interface SearchState {
+export interface SearchState {
   query: string;
   results: SoundcloudTrack[];
 }
@@ -20,8 +20,10 @@ export const searchSlice = createSlice({
       state.query = action.payload;
     },
 
-    results: (state, action: PayloadAction<SoundcloudTrack[]>) => {
-      state.results = action.payload;
+    results: (state, action: PayloadAction<{ query: string, tracks: SoundcloudTrack[] }>) => {
+      if (action.payload.query === state.query) {
+        state.results = action.payload.tracks;
+      }
     },
   },
 });
@@ -31,7 +33,7 @@ export const { query, results } = searchSlice.actions;
 export const search = (q: string): AppThunk => async (dispatch) => {
   dispatch(query(q));
   const result = await SC.get("/tracks", { q });
-  dispatch(results(result));
+  dispatch(results({ query: q, tracks: result }));
   console.log(result);
 };
 

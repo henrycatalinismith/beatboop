@@ -11,7 +11,13 @@ export interface ArtworkProps {
 
 export function Artwork({ feature, track }: ArtworkProps) {
   const [loaded, setLoaded] = React.useState(false)
-  const onLoad = () => setLoaded(true)
+
+  React.useEffect(() => {
+    const img = new Image();
+    img.src = track.artwork_url
+    img.onload = () => setLoaded(true)
+  }, [track.artwork_url])
+
   console.log(loaded)
   return (
     <div className={cx(styles.artwork, {
@@ -23,7 +29,6 @@ export function Artwork({ feature, track }: ArtworkProps) {
         aria-hidden
         alt=""
         src={track.artwork_url}
-        onLoad={onLoad}
       />
     </div>
   )

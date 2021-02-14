@@ -11,16 +11,21 @@ export function Player() {
   const track = useSelector(selectPlayerTrack);
   const onClick = () => dispatch(togglePlayback())
 
+  let emoji = "▶️"
+  let label = "Play"
+
+  if (mode === "play") {
+    emoji = "⏸"
+    label = "Pause"
+  }
+
+
   return (
     <div className={styles.player}>
       <Artwork track={track} feature="Player" />
       <Metadata track={track} feature="Player" />
-      <button className={styles.button} onClick={onClick}>
-        {["idle", "pause"].includes(mode) ? (
-          <>▶️</>
-        ) : (
-          <>⏸</>
-        )}
+      <button className={styles.button} onClick={onClick} aria-label={label}>
+        {emoji}
       </button>
     </div>
   );

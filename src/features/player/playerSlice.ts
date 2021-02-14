@@ -62,7 +62,6 @@ export const togglePlayback = (): AppThunk => async (dispatch, getState) => {
     await dispatch(play(track))
     await player.play()
   }
-  //dispatch(pause())
 }
 
 export const selectPlayerMode = (state: RootState) => state.player.mode;

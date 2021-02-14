@@ -1,5 +1,4 @@
 .player {
-  background-color: lightsalmon;
   display: flex;
   height: 100px;
   padding: 1rem;
@@ -16,13 +15,17 @@
   -webkit-appearance: none;
   transform: scale(1);
   transition: transform 128ms;
-  height: 64px;
+  height: 72px;
   align-self: center;
 }
 
 .button:focus {
   outline: none;
-  text-shadow: 0 0 0.4rem cyan;
+  text-shadow:
+    2px 2px 2px cyan,
+    -2px 2px 2px cyan,
+    2px -2px 2px cyan,
+    -2px -2px 2px cyan;
 }
 
 .button:hover {

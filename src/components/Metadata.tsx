@@ -10,6 +10,8 @@ export interface MetadataProps {
 }
 
 export function Metadata({ feature, track }: MetadataProps) {
+  const minutes = Math.floor(track.duration / 1000 / 60)
+  const seconds = Math.floor(track.duration / 1000 % 60)
   return (
     <span className={cx(styles.metadata, {
       [styles.player]: feature === "Player",
@@ -17,10 +19,10 @@ export function Metadata({ feature, track }: MetadataProps) {
     })}>
       <span className={styles.title}>{track.title.trim()}</span>
       <span className={styles.username}>{track.user.username}</span>
-      <span className={styles.duration}>
-        {Math.floor(track.duration / 1000 / 60)}:
-        {Math.floor(track.duration / 1000 % 60).toString().padStart(2, "0")}
-      </span>
+      <time className={styles.duration} dateTime={`${minutes}m ${seconds}s`}>
+        {minutes}:
+        {seconds.toString().padStart(2, "0")}
+      </time>
     </span>
   )
 }

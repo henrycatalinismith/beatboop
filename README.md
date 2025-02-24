@@ -36,3 +36,7 @@ fits exactly in the viewport. The mobile Safari bottom bar is also visible on pa
 I didn't have time to do lots of stuff I'd have liked to do. One thing I had to leave out was handling landscape orientation nicely on phones. It's still perfectly functional in landscape but I'd like to have gotten it a bit more pixel-perfect. I also deliberately didn't do any desktop-specific layout work which was partially to save time for the exercise, and partially because I think mobile-first MVP implementations are often good enough for production use anyway and if people AB tested the introduction of their desktop-specific layouts they'd often find they don't have much impact on key metrics. The hardest thing to leave out was that I'd have loved to spend a while making it beautiful. At least it's a very robust foundation to add that kind of polish to.
 
 I might have extracted a few more components from `<Player />` and `<Search />` with a little more time. But I do really like the balance the code strikes right now because the only components extracted into `src/app/components` are ones that are actually used in more than one place. I think that's often a good heuristic for whether a component should be extracted or not, but I'm generally pretty flexible these days about those kinds of refactoring decisions as they tend to vary a lot between teams.
+
+## License
+
+[AGPL-3.0](https://codeberg.org/henrycatalinismith/beatboop/src/branch/main/license)

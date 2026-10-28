@@ -39,4 +39,4 @@ I might have extracted a few more components from `<Player />` and `<Search />` 
 
 ## License
 
-[AGPL-3.0](https://codeberg.org/henrycatalinismith/beatboop/src/branch/main/license)
+[AGPL-3.0](https://github.com/henrycatalinismith/beatboop/blob/main/license)
